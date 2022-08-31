@@ -41,21 +41,21 @@ with tab3:
         st.write("✅")
     else:
         st.write("❌")
-    q2l1 = st.write("A Data Engineer has inherited a database and is monitoring a table with the below query every 30 days:")
-    q2l2 = st.write("SELECT SYSTEM$CLUSTERING_INFORMATION('orders', '(o_orderdate)');")
-    q2l3 = st.write("The Engineer gets the first two results (e.g., Day 0 and Day 30).")
-    st.image("img\day0.PNG")
-    st.image("img\day30p1.PNG")
-    st.image("img\day30p2.PNG")
-    q2 = st.radio("How should the Engineer interpret these results?",
-                 ("The table is well organized for queries that range over column o_orderdate. Over time, this organization is degrading.",
-                  "The table was initially well organized for queries that range over column o_orderdate. Over time, this organization has improved further.",
-                  "The table was initially not organized for queries that range over column o_orderdate. Over time, this organization has changed.",
-                  "The table was initially poorly organized for queries that range over column o_orderdate. Over time, this organization has improved."))
-    if q2 == "The table is well organized for queries that range over column o_orderdate. Over time, this organization is degrading.":
-        st.write("✅")
-    else:
-        st.write("❌")
+    # q2l1 = st.write("A Data Engineer has inherited a database and is monitoring a table with the below query every 30 days:")
+    # q2l2 = st.write("SELECT SYSTEM$CLUSTERING_INFORMATION('orders', '(o_orderdate)');")
+    # q2l3 = st.write("The Engineer gets the first two results (e.g., Day 0 and Day 30).")
+    # st.image("img\day0.PNG")
+    # st.image("img\day30p1.PNG")
+    # st.image("img\day30p2.PNG")
+    # q2 = st.radio("How should the Engineer interpret these results?",
+    #              ("The table is well organized for queries that range over column o_orderdate. Over time, this organization is degrading.",
+    #               "The table was initially well organized for queries that range over column o_orderdate. Over time, this organization has improved further.",
+    #               "The table was initially not organized for queries that range over column o_orderdate. Over time, this organization has changed.",
+    #               "The table was initially poorly organized for queries that range over column o_orderdate. Over time, this organization has improved."))
+    # if q2 == "The table is well organized for queries that range over column o_orderdate. Over time, this organization is degrading.":
+    #     st.write("✅")
+    # else:
+    #     st.write("❌")
     q3 = st.radio("A Data Engineer is preparing to load staged data from an external stage using a task object. \
                   Which of the following practices will provide the MOST efficient load performance?",
                   ("Store the files on the external stage to ensure caching is maintained.",
