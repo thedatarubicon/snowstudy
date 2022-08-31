@@ -1,7 +1,6 @@
-# Snowflake - SnowPro Advanced Architect - Study Guide Randomizer
+# Snowflake SnowPro Study Guide Randomizer
 
 ## Environment Setup (using Terminal or Command Prompt)
-### For Windows Machines
 1. Create a virtual environment using python's venv:
 ```
 python -m venv venv
@@ -20,7 +19,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-## Streamlit Application Setup (Using Terminal or Command Prompt)
+## Streamlit Application Deployment (Using Terminal or Command Prompt)
 1. If you are new to Streamlit, run the following command:
 ```
 streamlit hello
@@ -28,5 +27,5 @@ streamlit hello
 2. Then, enter in an email.
 3. Now, to deploy the Streamlit application to your localhost machine, run the following command:
 ```
-streamlit run app.py
+streamlit run Home.py
 ```
