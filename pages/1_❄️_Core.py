@@ -24,7 +24,7 @@ with tab2:
     st.subheader("Randomizer")
     if st.button("Generate Study Topic"):
         link = random.choice(links)
-        components.iframe(link, width=1000, height=675, scrolling=True)
+        components.iframe(link, width=715, height=550, scrolling=True)
     else:
         st.write("")
 
