@@ -8,11 +8,16 @@ import pandas as pd
 import random
 from links.de import links
 
+# Page Layout
+st.set_page_config(layout="wide")
+
 # App Code
 st.header("SnowPro Advanced: Data Engineer")
 
-tab1, tab2, tab3 = st.tabs(["Exam Breakdown", "Randomizer", "Sample Questions"])
+# Tabs
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Selector", "Randomizer", "Sample Questions"])
 
+# Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
     debd = {"Domain": ["Data Movement", "Performance Optimization", "Storage and Data Protection", "Security", "Data Transformation"], 
@@ -20,7 +25,136 @@ with tab1:
     df = pd.DataFrame(data=debd)
     st.table(df)
 
+# Domains & Objectives
 with tab2:
+    st.subheader("Domains & Objectives")
+    with st.container():
+        tab6, tab7, tab8, tab9, tab10 = st.tabs(["Data Movement", "Performance Optimization", "Storage and Data Protection", "Security", "Data Transformation"])
+        st.markdown('''
+                    <style>
+                    [data-testid="stMarkdownContainer"] ul{
+                        padding-left:40px;
+                    }
+                    </style>
+                    ''', unsafe_allow_html=True)
+
+        # Data Movement
+        with tab6:
+            st.markdown("""
+            ##### 1.1 Given a data set, load data into Snowflake.
+            - Outline considerations for data loading
+            - Define data loading features and potential impact
+            ##### 1.2 Ingest data of various formats through the mechanics of Snowflake.
+            - Required data formats
+            - Outline Stages
+            ##### 1.3 Troubleshoot data ingestion.
+            ##### 1.4 Design, build and troubleshoot continuous data pipelines.
+            - Design a data pipeline that forces uniqueness but is not unique.
+            - Stages 
+            - Tasks
+            - Streams
+            - Snowpipe
+            - Auto ingest as compared to Rest API
+            ##### 1.5 Analyze and differentiate types of data pipelines.
+            - Understand Snowpark architecture (client vs server)
+            - Create and deploy UDFs and Stored Procedures using Snowpark
+            - Design and use the Snowflake SLQ API
+            ##### 1.6 Install, configure, and use connectors to connect to Snowflake.
+            ##### 1.7 Design and build data sharing solutions. 
+            - Implement a data share
+            - Create a secure view
+            - Implement row level filtering
+            ##### 1.8 Outline when to use an External Table and define how they work.
+            - Partitioning external tables
+            - Materialized views
+            - Partitioned data unloading
+            """)
+
+        # Performance Optimization
+        with tab7:
+            st.markdown("""
+            ##### 2.1 Troubleshoot underperforming queries.
+            - Identify underperforming queries
+            - Outline telemetry around the operation
+            - Increase efficiency
+            - Identify the root cause
+            ##### 2.2 Given a scenario, configure a solution for the best performance.
+            - Scale out vs. scale in
+            - Cluster vs. increase warehouse size
+            - Query complexity
+            - Micro partitions and the impact of clustering
+            - Materialized views
+            - Search optimization
+            ##### 2.3 Outline and use caching features.
+            ##### 2.4 Monitor continuous data pipelines.
+            - Snowpipe 
+            - Stages
+            - Tasks
+            - Streams
+            """)
+
+        # Storage and Data Protection
+        with tab8:
+            st.markdown("""
+            ##### 3.1 Implement data recovery features in Snowflake. 
+            - Time Travel
+            - Fail-safe
+            ##### 3.2 Outline the impact of Streams on Time Travel. 
+            ##### 3.3 Use System Functions to analyze Micro-partitions. 
+            - Clustering depth
+            - Cluster keys
+            ##### 3.4 Use Time Travel and Cloning to create new development environments.
+            - Backup databases
+            - Test changes before deployment
+            - Rollback
+            """)
+
+        # Security
+        with tab9:
+            st.markdown("""
+            ##### 4.1 Outline Snowflake security principles. 
+            - Authentication methods (Single Sign On, Key Authentication, Username/Password, MFA)
+            - Role Based Access Control (RBAC)
+            - Column Level Security and how data masking works with RBAC to secure sensitive data
+            ##### 4.2 Outline the System Defined Roles and when they should be applied.
+            - The purpose of each of the System Defined Roles including best practices usage in each case
+            - The primary differences between SECURITYADMIN and USERADMIN roles
+            - The difference between the purpose and usage of the USERADMIN/SECURITYADMIN roles and SYSADMIN
+            ##### 4.3 Manage Data Governance.
+            - Explain the options available to support column level security including Dynamic Data Masking and External Tokenization
+            - Explain the options available to support row level security using Snowflake Row Access Policies
+            - Use DDL required to manage Dynamic Data Masking and Row Access Policies
+            - Use methods and best practices for creating and applying masking policies on data
+            - Use methods and best practices for Object Tagging 
+            """)
+
+        # Data Transformation
+        with tab10:
+            st.markdown("""
+            ##### 5.1 Define User-Defined Functions (UDFs) and outline how to use them.
+            - Secure UDFs
+            - SQL UDFs
+            - JavaScript UDFs
+            - Returning Table Value vs. Scalar Value
+            ##### 5.2 Define and create External Functions. 
+            - Secure External Functions
+            ##### 5.3 Design, Build, and Leverage Stored Procedures.
+            - Transaction management 
+            ##### 5.4 Handle and transform semi-structured data.
+            - Traverse and transform semi-structured data to structured data
+            - Transform structured to semi-structured data
+            ##### 5.5 Use Snowpark for data transformation.
+            - Query and filter data using the Snowpark library
+            - Perform data transformations using Snowpark (ie., aggregations)
+            - Join Snowpark dataframes 
+            """)
+
+# Selector
+with tab3:
+    print("")
+
+# Randomizer
+with tab4:
     st.subheader("Randomizer")
     if st.button("Generate Study Topic"):
         link = random.choice(links)
@@ -28,7 +162,8 @@ with tab2:
     else:
         st.write("")
 
-with tab3:
+# Sample Questions
+with tab5:
     st.subheader("Sample Questions")
     q1l1 = st.write("Running the below clustering information analysis function:")
     q1l2 = st.write("SELECT SYSTEM$CLUSTERING_INFORMATION('table1", "(col1, col2)")

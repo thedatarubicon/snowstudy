@@ -8,11 +8,16 @@ import pandas as pd
 import random
 from links.sa import links
 
+# Page Layout
+st.set_page_config(layout="wide")
+
 # App Code
 st.header("SnowPro Advanced: Architect")
 
-tab1, tab2, tab3 = st.tabs(["Exam Breakdown", "Randomizer", "Sample Questions"])
+# Tabs
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Selector", "Randomizer", "Sample Questions"])
 
+# Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
     abd = {"Domain": ["Accounts & Security", "Snowflake Architecture", "Data Engineering", "Performance Optimization"], 
@@ -20,7 +25,125 @@ with tab1:
     df = pd.DataFrame(data=abd)
     st.table(df)
 
+# Domains & Objectives
 with tab2:
+    st.subheader("Domains & Objectives")
+    with st.container():
+        tab6, tab7, tab8, tab9 = st.tabs(["Accounts & Security", "Snowflake Architecture", "Data Engineering", "Performance Optimization"])
+        st.markdown('''
+                    <style>
+                    [data-testid="stMarkdownContainer"] ul{
+                        padding-left:40px;
+                    }
+                    </style>
+                    ''', unsafe_allow_html=True)
+
+        # Accounts & Security
+        with tab6:
+            st.markdown("""
+            ##### 1.1 Design a Snowflake account and database strategy, based on business requirements.
+            - Create and configure Snowflake parameters based on a central account and any additional accounts.
+            - List the benefits and limitations of one Snowflake account as compared to multiple Snowflake accounts.
+            ##### 1.2 Design an architecture that meets data security, privacy, compliance, and governance requirements.
+            - Configure Role Based Access Control (RBAC) hierarchy
+            - System roles and associated best practices
+            - Data Access
+            - Data Security
+            - Compliance
+            ##### 1.3 Outline Snowflake security principles and identify use cases where they should be applied.
+            - Encryption
+            - Network security
+            - User, Role, Grants provisioning
+            - Authentication
+            """)
+
+        # Snowflake Architecture
+        with tab7:
+            st.markdown("""
+            ##### 2.1 Outline the benefits and limitations of various data models in a Snowflake environment.
+            - Data Models
+            ##### 2.2 Design data sharing solutions, based on different use cases
+            - Use Cases
+              + Sharing within the same organization/same Snowflake account
+              + Sharing within a cloud region
+              + Sharing across cloud regions
+              + Sharing between different Snowflake accounts
+              + Sharing to a non-Snowflake customer
+              + Sharing across platforms
+            - Data Marketplace
+            - Data Exchange
+            - Data Sharing Methods
+            ##### 2.3 Create architecture solutions that support Development Lifecycles as well as workload requirements.
+            - Data Lake and Environments
+            - Workloads
+            - Development Lifecycle Support
+            ##### 2.4 Given a scenario, outline how objects exist within the Snowflake Object hierarchy and how the hierarchy impacts an architecture.
+            - Roles
+            - Warehouses
+            - Object hierarchy
+            - Database
+            ##### 2.5 Determine the appropriate data recovery solution in Snowflake and how data can be restored.
+            - Backup/Recovery
+            - Disaster Recovery
+            """)
+
+        # Data Engineering
+        with tab8:
+            st.markdown("""
+            ##### 3.1 Determine the appropriate data loading or data unloading solution to meet business needs.
+            - Data sources
+            - Ingestion of the data
+            - Architecture Changes
+            - Data unloading
+            ##### 3.2 Outline key tools in Snowflake's ecosystem and how they interact with Snowflake.
+            - Connectors
+              + Kafka
+              + Spark
+              + Python
+            - Drivers
+              + JDBC
+              + ODBC
+            - API endpoints
+            - SnowSQL
+            ##### 3.3 Determine the appropriate data transformation solution to meet business needs.
+            - Materialized Views, Views, and Secure Views
+            - Staging layers and tables
+            - Querying semi-structured data
+            - Data processing
+            - Stored Procedures
+            - Streams and Tasks
+            - Functions
+              + External Functions
+              + User-Defined Functions (UDFs)
+            """)
+
+        # Performance Optimization
+        with tab9:
+            st.markdown("""
+            ##### 4.1 Outline performance tools, best practices, and appropriate scenarios where they should be applied.
+            - Query profiling
+            - Virtual warehouse configuration
+            - Clustering
+            - Search Optimization
+            - Caching
+            - Query rewrite
+            ##### 4.2 Troubleshoot performance issues with existing architectures.
+            - JOIN explosions
+            - Warehouse selection (scaling up as compared to scaling out)
+            - Best practices and optimization techniques
+            - Duplication of data
+            - Monitoring and Alerting
+              + Statistics
+              + Resource Monitoring
+              + Account Usage and Information Schema
+            """)
+            
+# Selector
+with tab3: 
+    print("")
+
+# Randomizer
+with tab4:
     st.subheader("Randomizer")
     if st.button("Generate Study Topic"):
         link = random.choice(links)
@@ -28,7 +151,8 @@ with tab2:
     else:
         st.write("")
 
-with tab3:
+# Sample Questions
+with tab5:
     st.subheader("Sample Questions")
     q1 = st.radio("Which of the following ALTER commands will impact a column's availability in Time Travel?",
                  ("ALTER TABLE ... SET DATA TYPE ...", "ALTER TABLE ... RENAME COLUMN ...", "ALTER TABLE ... SET NOT NULL ...", "ALTER TABLE ... DROP COLUMN ..."))
