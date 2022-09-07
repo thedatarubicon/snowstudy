@@ -1,6 +1,6 @@
 # Snowflake SnowPro Study Guide Randomizer
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://thedatarubicon-snowpro-study-guide-randomizer-home-02bzmd.streamlitapp.com/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://thedatarubicon-snowpro-snowstudy-home-v3ylfe.streamlitapp.com/)
 
 ## Environment Setup (using Terminal or Command Prompt)
 1. Create a virtual environment using python's venv:
