@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 st.header("SnowPro Advanced: Administrator")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Selector", "Randomizer", "Sample Questions"])
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Randomizer", "Sample Questions"])
 
 # Exam Breakdown
 with tab1:
@@ -323,9 +323,12 @@ with tab2:
         - Data vault
         """)
 
-# Selector
+# Study Resources
 with tab3:
-    print("")
+    st.subheader("Study Resources")
+    data = links
+    df = pd.DataFrame(data, columns=['Link'])
+    st.write(df.to_html(escape=False, index=False, header=False), unsafe_allow_html=True)
 
 # Randomizer
 with tab4:
