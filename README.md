@@ -1,4 +1,4 @@
-# Snowflake SnowPro Study Guide Randomizer
+# Snowflake SnowPro SnowStudy
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://thedatarubicon-snowpro-snowstudy-home-v3ylfe.streamlitapp.com/)
 
