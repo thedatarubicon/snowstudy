@@ -20,6 +20,7 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives"
 # Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
+    st.markdown("The study guide was last updated on: August 9, 2022")
     ebd = {"Domain": ["Snowflake Cloud Data Platform and Features", "Account Access and Security", "Performance Concepts", "Data Loading and Unloading", "Data Transformations", "Data Protection and Data Sharing"],
            "Estimated Percentage Range": ["20-25%", "20-25%", "10-15%", "5-10%", "20-25%", "5-10%"]}
     df = pd.DataFrame(data=ebd)
@@ -186,7 +187,7 @@ with tab2:
             - Access control options
             - Shares
             """)
-
+# Feature Enhancement: Restructure Study Resources (Tabs within a tab)
 # Study Resources
 with tab3:
     st.subheader("Study Resources")
@@ -196,8 +197,9 @@ with tab3:
 # Randomizer
 with tab4:
     st.subheader("Randomizer")
-    if st.button("Generate Study Topic"):
+    if st.button("Generate Study Resource"):
         link = random.choice(links2)
+        st.write("Study Resource:", link)
         components.iframe(link, width=715, height=550, scrolling=True)
     else:
         st.write("")
@@ -205,34 +207,84 @@ with tab4:
 # Sample Questions
 with tab5:
     st.subheader("Sample Questions")
-    q1 = st.radio("Which type of Data Integration tools leverage Snowflake's scalable compute for data transformation?",("Database Replication", "ELT", "ETL", "Streaming"))
-    if q1 == "ELT":
-        st.write("✅")
+
+    # Q1
+    q1_text = st.markdown("""
+    **Q1: Which type of Data Integration tools leverage Snowflake's scalable compute for data transformation?** 
+    - A. Database Replication
+    - B. ELT
+    - C. ETL
+    - D. Streaming
+    """)
+    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=0)
+    if q1 == "B":
+        st.write("✅ That's correct!")
+    elif q1 == "":
+        st.write("Please input your answer above.")
     else:
-        st.write("❌")
-    q2 = st.radio("What is the maximum number of consumer accounts that can be added to a Share object?", ("One", "Unlimited", "10", "100"))
-    if q2 == "Unlimited":
-        st.write("✅")
+        st.write("❌ That's incorrect. Please try again.")        
+
+    # Q2
+    q2_text = st.markdown("""
+    **Q2: What is the maximum number of consumer accounts that can be added to a Share object?**
+    - A. One
+    - B. Unlimited
+    - C. 10
+    - D. 100
+    """)
+    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
+    if q2 == "B":
+        st.write("✅ That's correct!")
+    elif q2 == "":
+        st.write("Please input your answer above.")
     else:
-        st.write("❌")
-    q3 = st.radio("3. What technique does Snowflake use to limit the number of micro-partitions scanned by each query?", ("Pruning", "Indexing", "Map Reduce", "B-Tree"))
-    if q3 == "Pruning":
-        st.write("✅")
+        st.write("❌ That's incorrect. Please try again.")
+
+    # Q3
+    q3_text = st.markdown("""
+    **Q3: What technique does Snowflake use to limit the number of micro-partitions scanned by each query?**
+    - A. Pruning
+    - B. Indexing
+    - C. Map Reduce
+    - D. B-Tree
+    """)
+    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
+    if q3 == "A":
+        st.write("✅ That's correct!")
+    elif q3 == "":
+        st.write("Please input your answer above.")
     else:
-        st.write("❌")
-    q4l1 = st.write("Which of the following are options when creating a Virtual Warehouse?")
-    q4l2 = st.write("A. auto-suspend")
-    q4l3 = st.write("B. storage size") 
-    q4l4 = st.write("C. auto-resume")
-    q4l5 = st.write("D. cache size")   
-    q4l6 = st.write("E. default role")
-    q4 = st.text_input("Choose 2 answers by typing in their letters.", key=0)
-    if q4 == "A, C" or q4 == "A and C" or q4 == "A & C":
-        st.write("✅")
+        st.write("❌ That's incorrect. Please try again.")
+
+    # Q4
+    q4_text = st.markdown("""
+    **Q4: Which of the following are options when creating a Virtual Warehouse?** (2 Answers)
+    - A. auto-suspend
+    - B. storage size
+    - C. auto-resume
+    - D. cache size  
+    - E. default role
+    """)
+    q4 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=3)
+    if q4 == "A, C":
+        st.write("✅ That's correct!")
+    elif q4 == "":
+        st.write("Please input your answer above.")
     else:
-        st.write("❌")  
-    q5 = st.radio("Which role in Snowflake allows a user to administer users and manage all database objects?", ("SYSADMIN", "SECURITYADMIN", "ACCOUNTADMIN", "ROOT"))
-    if q5 == "ACCOUNTADMIN":
-        st.write("✅")
+        st.write("❌ That's incorrect. Please try again.")
+
+    # Q5
+    q5_text = st.markdown("""
+    **Q5: Which role in Snowflake allows a user to administer users and manage all database objects?**
+    - A. SYSADMIN
+    - B. SECURITYADMIN
+    - C. ACCOUNTADMIN
+    - D. ROOT
+    """)
+    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
+    if q5 == "C":
+        st.write("✅ That's correct!")
+    elif q5 == "":
+        st.write("Please input your answer above.")
     else:
-        st.write("❌")
+        st.write("❌ That's incorrect. Please try again.")
