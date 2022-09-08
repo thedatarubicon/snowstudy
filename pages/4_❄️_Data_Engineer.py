@@ -242,8 +242,8 @@ with tab5:
     - C. COPY INTO @myExtStage from @myInternalStage;
     - D. Write a custom script to move the data
     """)
-    q4 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=3)
-    if q4 == "C":
+    q4 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=3)
+    if q4 == "A":
         st.write("✅ That's correct!")
     elif q4 == "":
         st.write("Please input your answer above.")
@@ -260,7 +260,7 @@ with tab5:
     - C. The retention time on both tables will be set to 20 days.
     - D. The retention time will not change on either table.
     """)
-    q5 = st.selectbox("Answers:", ("", ""), key=4)
+    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
     if q5 == "A":
         st.write("✅ That's correct!")
     elif q5 == "":

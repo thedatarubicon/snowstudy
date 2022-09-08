@@ -226,14 +226,14 @@ with tab5:
 
     # Q2
     q2_text = st.markdown("""
-    **Q2: What is the maximum number of consumer accounts that can be added to a Share object?**
-    - A. One
-    - B. Unlimited
-    - C. 10
-    - D. 100
+    **Q2: What is the maximum number of consumer accounts that can be added to a share object?**
+    - A. 1
+    - B. 10
+    - C. 100
+    - D. Unlimited
     """)
     q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
-    if q2 == "B":
+    if q2 == "D":
         st.write("✅ That's correct!")
     elif q2 == "":
         st.write("Please input your answer above.")
@@ -258,7 +258,7 @@ with tab5:
 
     # Q4
     q4_text = st.markdown("""
-    **Q4: Which of the following are options when creating a Virtual Warehouse?** (2 Answers)
+    **Q4: Which of the following are options when creating a Virtual Warehouse? (Select 2)**
     - A. auto-suspend
     - B. storage size
     - C. auto-resume
