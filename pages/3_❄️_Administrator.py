@@ -326,8 +326,7 @@ with tab2:
 # Study Resources
 with tab3:
     st.subheader("Study Resources")
-    data = links
-    df = pd.DataFrame(data, columns=['Link'])
+    df = pd.DataFrame(links, columns=["Link"])
     st.write(df.to_html(escape=False, index=False, header=False), unsafe_allow_html=True)
 
 # Randomizer
