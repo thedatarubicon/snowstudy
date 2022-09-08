@@ -12,7 +12,7 @@ st.markdown('''
                     ''', unsafe_allow_html=True)
 
 # App Code
-st.header("SnowPro Study Guide Randomizer")
+st.header("SnowPro SnowStudy")
 
 # Page Content
 st.markdown("""
