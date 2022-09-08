@@ -6,7 +6,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.ds import links, links2
+from links.core import links, links2
 
 # Page Layout
 st.set_page_config(layout="wide")
