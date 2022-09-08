@@ -6,7 +6,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.sa import links
+from links.sa import links, links2
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -141,14 +141,14 @@ with tab2:
 # Study Resources
 with tab3: 
     st.subheader("Study Resources")
-    df = pd.DataFrame(links, columns=["Link"])
-    st.write(df.to_html(escape=False, index=False, header=False), unsafe_allow_html=True)
+    for i in links:
+        st.write(i)
 
 # Randomizer
 with tab4:
     st.subheader("Randomizer")
     if st.button("Generate Study Topic"):
-        link = random.choice(links)
+        link = random.choice(links2)
         components.iframe(link, width=715, height=550, scrolling=True)
     else:
         st.write("")
