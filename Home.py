@@ -52,6 +52,7 @@ with tab2:
     - Restructure/Rework Sample Questions tab
     - Restructure/Rework Randomizer tab to display URL along with iframe component
     - Update Home page structure to have the following tabs: Overview, Release Notes
+    - Fix bugs in the "Sample Questions" tab for the following pages: Core and Data Engineer
     ##### 9/7/22:
     - Add Domains & Objectives tab to each exam-specific page
     - Add Feedback page to app
