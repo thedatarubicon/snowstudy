@@ -1,12 +1,12 @@
 # Exam Study Guide
-# Last Updated: June 30, 2022
+# Last Updated: August 9, 2022
 
 # Import package dependencies
 import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.ds import links, links2
+from links.core import links, links2
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -20,8 +20,8 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives"
 # Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
-    ebd = {"Domain": ["Account & Security", "Virtual Warehouses", "Data Movement", "Performance Management", "Snowflake Overview and Architecture", "Storage and Protection"],
-           "Estimated Percentage Range": ["10-15%", "15-20%", "10-20%", "5-10%", "25-30%", "10-15%"]}
+    ebd = {"Domain": ["Snowflake Cloud Data Platform and Features", "Account Access and Security", "Performance Concepts", "Data Loading and Unloading", "Data Transformations", "Data Protection and Data Sharing"],
+           "Estimated Percentage Range": ["20-25%", "20-25%", "10-15%", "5-10%", "20-25%", "5-10%"]}
     df = pd.DataFrame(data=ebd)
     st.table(df)
 
@@ -29,7 +29,7 @@ with tab1:
 with tab2:
     st.subheader("Domains & Objectives")
     with st.container():
-        tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs(["Account & Security", "Virtual Warehouses", "Data Movement", "Performance Management", "Snowflake Overview and Architecture", "Storage and Protection"])
+        tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs(["Snowflake Cloud Data Platform and Features", "Account Access and Security", "Performance Concepts", "Data Loading and Unloading", "Data Transformations", "Data Protection and Data Sharing"])
         st.markdown('''
                     <style>
                     [data-testid="stMarkdownContainer"] ul{
@@ -37,152 +37,154 @@ with tab2:
                     }
                     </style>
                     ''', unsafe_allow_html=True)
-        # Account & Security
+
+        # Snowflake Cloud Data Platform and Features
         with tab6:
             st.markdown("""
-            ##### 1.1 Explain how to manage Snowflake accounts.
-            - Account usage
-            - Account access
-            - Account views
-            - Information schema
-            ##### 1.2 Outline security principles.
-            - Multi-factor Authentication (MFA)
-            - Data Encryption
-            - Network Security and Policies
-            - Access Control
-            - Federated Authentication
-            - Single Sign-On (SSO)
-            ##### 1.3 Define the entities and roles that are used in Snowflake.
-            - Outline how privileges can be granted and revoked
-            - Explain Role Hierarchy and Privilege Inheritance
-            ##### 1.4 Explain the security capabilities associated with each Snowflake edition.
-            - Column-level security
-            ##### 1.5 Outline data governance capabilities in Snowflake.
-            - Data masking
-            - Account usage views
-            - External tokenization
-            - Secure views
+            ##### 1.1 Outline key features of the Snowflake Cloud Data Platform.
+            - Elastic Storage
+            - Elastic Compute
+            - Snowflake’s three distinct layers
+            - Data Cloud/ Data Exchange/ Partner Network
+            - Cloud partner categories
+            ##### 1.2 Outline key Snowflake tools and user interfaces.
+            - Snowflake User Interfaces (UI)
+            - Snowsight
+            - Snowflake connectors
+            - Snowflake drivers
+            - SQL scripting
+            - Snowpark
+            ##### 1.3 Outline Snowflake’s catalog and objects.
+            - Databases
+            - Schemas
+            - Tables Types
+            - View Types
+            - Data types
+            - User-Defined Functions (UDFs) and User Defined Table Functions (UDTFs)
+            - Stored Procedures
+            - Streams
+            - Tasks
+            - Pipes
+            - Shares
+            - Sequences
+            ##### 1.4 Outline Snowflake storage concepts.
+            - Micro partitions
+            - Types of column metadata clustering
+            - Data Storage Monitoring
+            - Search Optimization Service
             """)
         
-        # Virtual Warehouses
+        # Account Access and Security
         with tab7:
             st.markdown("""
-            ##### 2.1 Outline compute principles.
-            - Credit usage and billing
-            - Concurrency
-            - Caching
-            - Virtual warehouse characteristics and parameters
-            - Query profiler
-            ##### 2.2 Explain Virtual Warehouse best practices.
-            - Scale up compared to scale out
-            - Types of virtual warehouses
-            - Management/monitoring
+            ##### 2.1 Outline security principles.
+            - Network security and policies
+            - Multi-Factor Authentication (MFA)
+            - Federated authentication
+            - Single Sign-On (SSO)
+            ##### 2.2 Define the entities and roles that are used in Snowflake.
+            - Outline how privileges can be granted and revoked
+            - Explain role hierarchy and privilege inheritance
+            ##### 2.3 Outline data governance capabilities in Snowflake.
+            - Accounts
+            - Organizations
+            - Databases
+            - Secure views
+            - Information schemas
+            - Access history and read support
             """)
       
-        # Data Movement
+        # Performance Concepts
         with tab8:
             st.markdown("""
-            ##### 3.1 Outline different commands used to load data and when they should be used.
-            - COPY
-            - INSERT
-            - PUT
-            - GET
-            - VALIDATE
-            - SNOWPIPE
-            - COPY INTO
-            ##### 3.2 Define bulk as compared to continuous data loading methods.
-            - COPY
-            - Snowpipe
-            - Parameters types
-            ##### 3.3 Define best practices that should be considered when loading data.
+            ##### 3.1 Explain the use of the Query Profile.
+            - Explain plans
+            - Data spilling
+            - Use of the data cache
+            - Micro-partition pruning
+            - Query history
+            ##### 3.2 Explain virtual warehouse configurations.
+            - Multi-clustering
+            - Warehouse sizing
+            - Warehouse settings and access
+            ##### 3.3 Outline virtual warehouse performance tools.
+            - Monitoring warehouse loads
+            - Query performance
+            - Scaling up compared to scaling out
+            - Resource monitors
+            ##### 3.4 Optimize query performance.
+            - Describe the use of materialized views
+            - Use of specific SELECT commands 
+            """)
+        
+        # Data Loading and Unloading
+        with tab9:
+            st.markdown("""
+            ##### 4.1 Define concepts and best practices that should be considered when loading data.
+            - Stages and stage types
             - File size
-            - File Formats
-            - Folders
-            ##### 3.4 Outline how data can be unloaded from Snowflake to either local storage or cloud storage locations.
-            - Define formats supported for unloading data from Snowflake
-            - Define commands that help when unloading data
-            - Define best practices that should be considered when unloading data
-            ##### 3.5 Explain how to work and load semi-structured data.
+            - File formats
+            - Folder structures
+            - Adhoc/bulk loading using the Snowflake UI
+            ##### 4.2 Outline different commands used to load data and when they should be used.
+            - CREATE PIPE
+            - COPY INTO
+            - GET
+            - INSERT/INSERT OVERWRITE
+            - PUT
+            - STREAM
+            - TASK
+            - VALIDATE
+            ##### 4.3 Define concepts and best practices that should be considered when unloading data.
+            - File formats
+            - Empty strings and NULL values
+            - Unloading to a single file
+            - Unloading relational tables
+            ##### 4.4 Outline the different commands used to unload data and when they should be used.
+            - LIST
+            - COPY INTO
+            - CREATE FILE FORMAT
+            - CREATE FILE FORMAT … CLONE
+            - ALTER FILE FORMAT
+            - DROP FILE FORMAT
+            - DESCRIBE FILE FORMAT
+            - SHOW FILE FORMAT
+            """)
+
+        # Data Transformations
+        with tab10:
+            st.markdown("""
+            ##### 5.1 Explain how to work with standard data.
+            - Estimating functions
+            - Sampling
+            - Supported function types
+            - User-Defined Functions (UDFs) and stored procedures
+            ##### 5.2 Explain how to work with semi-structured data.
             - Supported file formats, data types, and sizes
             - VARIANT column
             - Flattening the nested structure
+            ##### 5.3 Explain how to work with unstructured data.
+            - Directory tables
+            - SQL file functions
+            - Rest API
+            - Create User-Defined Functions (UDFs) for data analysis
             """)
         
-        # Performance Management
-        with tab9:
-            st.markdown("""
-            ##### 4.1 Outline best practices for Snowflake performance management on storage.
-            - Clustering
-            - Materialized views
-            - Search Optimization Service
-            ##### 4.2 Outline best practices for Snowflake performance management on virtual warehouses.
-            - Query performance and analysis
-            - Query profiles
-            - Query history and activity
-            - SQL optimization
-            - Caching
-            """)
-
-        # Snowflake Overview and Architecture
-        with tab10:
-            st.markdown("""
-            ##### 5.1 Outline key components of Snowflake's Cloud data platform.
-            - Data types
-            - Optimizer
-            - Continuous data protection
-            - Cloning
-            - Types of Caching
-            - User-defined Functions (UDFs)
-            - Web Interface (UI)
-            - Data Cloud/Data Sharing/Data Marketplace/Data Exchange
-            ##### 5.2 Outline Snowflake data sharing capabilities.
-            - Account types
-            - Data Marketplace and Exchange
-            - Access control options
-            - Shares
-            ##### 5.3 Explain how Snowflake is different compared to legacy warehouse solutions.
-            - Elastic Storage
-            - Elastic Compute
-            - Account Management
-            ##### 5.4 Outline the different editions that are available, and the functionality associated with each edition.
-            - Pricing
-            - Features
-            ##### 5.5 Identify Snowflake's Partner Ecosystem.
-            - Cloud Partners
-            - Connectors
-            ##### 5.6 Outline and define the purpose of Snowflake's three distinct layers.
-            - Storage Layer
-            - Compute Layer
-            - Cloud Services Layer
-            ##### 5.7 Outline Snowflake's catalog and objects.
-            - Accounts
-            - Database
-            - Schema
-            - Table Types
-            - View Types
-            - Data Types
-            - External Functions
-            - Stored Procedures
-            """)
-        
-        # Storage and Protection
+        # Data Protection and Data Sharing
         with tab11:
             st.markdown("""
-            ##### 6.1 Outline Snowflake Storage Concepts.
-            - Micropartitions
-            - Metadata Types
-            - Clustering
-            - Data Storage
-            - Stage Types
-            - File Formats
-            - Storage Monitoring
-            ##### 6.2 Outline Continuous Data Protection with Snowflake.
+            ##### 6.1 Outline Continuous Data Protection with Snowflake.
             - Time Travel
-            - Fail Safe
+            - Fail-safe
             - Data Encryption
             - Cloning
             - Replication
-            - Master keys
+            ##### 6.2 Outline Snowflake data sharing capabilities.
+            - Account types
+            - Data Marketplace and Data Exchange
+            - Private data exchange
+            - Access control options
+            - Shares
             """)
 
 # Study Resources
