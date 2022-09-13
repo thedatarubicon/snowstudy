@@ -234,16 +234,16 @@ with tab3:
 
 # Generator
 with tab4:
-    col1, col2 = st.columns(2)
-    with col1:
-        for i in links:
-            st.write(i)
-    with col2:
-      with st.container():
-        url = st.text_input("Input URL:", max_chars=1000)
-        if url:
-            st.write("Study Resource:", url)
-            components.iframe(url, width=920, height=675, scrolling=True)
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            for i in links:
+                st.write(i)
+        with col2:
+            url = st.text_input("Input URL:", max_chars=1000)
+            if url:
+                st.write("Study Resource:", url)
+                components.iframe(url, width=750, height=675, scrolling=True)
 
 # Randomizer
 with tab5:
