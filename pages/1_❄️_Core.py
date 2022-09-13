@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 st.header("SnowPro Core")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Randomizer", "Sample Questions"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Generator", "Randomizer", "Sample Questions"])
 
 # Exam Breakdown
 with tab1:
@@ -30,7 +30,7 @@ with tab1:
 with tab2:
     st.subheader("Domains & Objectives")
     with st.container():
-        tab6, tab7, tab8, tab9, tab10, tab11 = st.tabs(["Snowflake Cloud Data Platform and Features", "Account Access and Security", "Performance Concepts", "Data Loading and Unloading", "Data Transformations", "Data Protection and Data Sharing"])
+        tab7, tab8, tab9, tab10, tab11, tab12 = st.tabs(["Snowflake Cloud Data Platform and Features", "Account Access and Security", "Performance Concepts", "Data Loading and Unloading", "Data Transformations", "Data Protection and Data Sharing"])
         st.markdown('''
                     <style>
                     [data-testid="stMarkdownContainer"] ul{
@@ -40,7 +40,7 @@ with tab2:
                     ''', unsafe_allow_html=True)
 
         # Snowflake Cloud Data Platform and Features
-        with tab6:
+        with tab7:
             st.markdown("""
             ##### 1.1 Outline key features of the Snowflake Cloud Data Platform.
             - Elastic Storage
@@ -76,7 +76,7 @@ with tab2:
             """)
         
         # Account Access and Security
-        with tab7:
+        with tab8:
             st.markdown("""
             ##### 2.1 Outline security principles.
             - Network security and policies
@@ -96,7 +96,7 @@ with tab2:
             """)
       
         # Performance Concepts
-        with tab8:
+        with tab9:
             st.markdown("""
             ##### 3.1 Explain the use of the Query Profile.
             - Explain plans
@@ -119,7 +119,7 @@ with tab2:
             """)
         
         # Data Loading and Unloading
-        with tab9:
+        with tab10:
             st.markdown("""
             ##### 4.1 Define concepts and best practices that should be considered when loading data.
             - Stages and stage types
@@ -153,7 +153,7 @@ with tab2:
             """)
 
         # Data Transformations
-        with tab10:
+        with tab11:
             st.markdown("""
             ##### 5.1 Explain how to work with standard data.
             - Estimating functions
@@ -165,14 +165,13 @@ with tab2:
             - VARIANT column
             - Flattening the nested structure
             ##### 5.3 Explain how to work with unstructured data.
-            - Directory tables
+            - Define and use directory tables
             - SQL file functions
-            - Rest API
-            - Create User-Defined Functions (UDFs) for data analysis
+            - Outline the purpose of User-Defined Functions (UDFs) for data analysis
             """)
         
         # Data Protection and Data Sharing
-        with tab11:
+        with tab12:
             st.markdown("""
             ##### 6.1 Outline Continuous Data Protection with Snowflake.
             - Time Travel
@@ -194,8 +193,20 @@ with tab3:
     for i in links:
         st.write(i)
 
-# Randomizer
+# Generator
 with tab4:
+    col1, col2 = st.columns(2)
+    with col1:
+        for i in links:
+            st.write(i)
+    with col2:
+        url = st.text_input("Input URL:", max_chars=1000)
+        if url:
+            st.write("Study Resource:", url)
+            components.iframe(url, width=920, height=675, scrolling=True)
+
+# Randomizer
+with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
         link = random.choice(links2)
@@ -205,7 +216,7 @@ with tab4:
         st.write("")
 
 # Sample Questions
-with tab5:
+with tab6:
     st.subheader("Sample Questions")
 
     # Q1

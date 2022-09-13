@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 st.header("SnowPro Advanced: Administrator")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Randomizer", "Sample Questions"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Generator", "Randomizer", "Sample Questions"])
 
 # Exam Breakdown
 with tab1:
@@ -30,7 +30,7 @@ with tab1:
 with tab2:
     st.subheader("Domains & Objectives")
     with st.container():
-        tab6, tab7, tab8, tab9, tab10 = st.tabs(["Snowflake Security, RBAC, & User Administration", "Account Management & Data Governance", "Performance Monitoring & Tuning", "Data Sharing, Data Exchange, & Data Marketplace", "Disaster Recovery, Backup, & Data Replication"])
+        tab7, tab8, tab9, tab10, tab11 = st.tabs(["Snowflake Security, RBAC, & User Administration", "Account Management & Data Governance", "Performance Monitoring & Tuning", "Data Sharing, Data Exchange, & Data Marketplace", "Disaster Recovery, Backup, & Data Replication"])
         st.markdown('''
                     <style>
                     [data-testid="stMarkdownContainer"] ul{
@@ -40,7 +40,7 @@ with tab2:
                     ''', unsafe_allow_html=True)
     
     # Snowflake Security, RBAC, & User Administration
-    with tab6:
+    with tab7:
         st.markdown("""
         ##### 1.1 Set up and manage Snowflake authentication
         - Establish federated authentication and Single Sign-on (SSO)
@@ -107,7 +107,7 @@ with tab2:
         """)
     
     # Account Management & Data Governance
-    with tab7:
+    with tab8:
         st.markdown("""
         ##### 2.1 Manage organizations and accounts
         - Describe the benefits of an organization
@@ -174,7 +174,7 @@ with tab2:
         """)
 
     # Performance Monitoring & Tuning
-    with tab8:
+    with tab9:
         st.markdown("""
         ##### 3.1 Given business requirements, design, manage, and maintain virtual warehouses
         - Outline the impact on billing, data loading, and query processing based on warehouse sizes
@@ -261,7 +261,7 @@ with tab2:
         """)
 
     # Data Sharing, Data Exchange, & Data Marketplace 
-    with tab9:
+    with tab10:
         st.markdown("""
         ##### 4.1 Manage and implement data sharing
         - Given a scenario, implement sharing solutions and impacts
@@ -304,7 +304,7 @@ with tab2:
         """)
 
     # Disaster Recovery, Backup, & Data Replication
-    with tab10:
+    with tab11:
         st.markdown("""
         ##### 5.1 Define User-Defined Functions (UDFs) and outline how to use them.
         - Secure UDFs
@@ -330,8 +330,20 @@ with tab3:
     for i in links:
         st.write(i)
 
-# Randomizer
+# Generator
 with tab4:
+    col1, col2 = st.columns(2)
+    with col1:
+        for i in links:
+            st.write(i)
+    with col2:
+        url = st.text_input("Input URL:", max_chars=1000)
+        if url:
+            st.write("Study Resource:", url)
+            components.iframe(url, width=920, height=675, scrolling=True)
+
+# Randomizer
+with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
         link = random.choice(links2)
@@ -341,7 +353,7 @@ with tab4:
         st.write("")
 
 # Sample Questions
-with tab5:
+with tab6:
     st.subheader("Sample Questions")
 
     # Q1

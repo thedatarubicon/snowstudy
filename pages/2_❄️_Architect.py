@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 st.header("SnowPro Advanced: Architect")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Randomizer", "Sample Questions"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Generator", "Randomizer", "Sample Questions"])
 
 # Exam Breakdown
 with tab1:
@@ -30,7 +30,7 @@ with tab1:
 with tab2:
     st.subheader("Domains & Objectives")
     with st.container():
-        tab6, tab7, tab8, tab9 = st.tabs(["Accounts & Security", "Snowflake Architecture", "Data Engineering", "Performance Optimization"])
+        tab7, tab8, tab9, tab10 = st.tabs(["Accounts & Security", "Snowflake Architecture", "Data Engineering", "Performance Optimization"])
         st.markdown('''
                     <style>
                     [data-testid="stMarkdownContainer"] ul{
@@ -40,7 +40,7 @@ with tab2:
                     ''', unsafe_allow_html=True)
 
         # Accounts & Security
-        with tab6:
+        with tab7:
             st.markdown("""
             ##### 1.1 Design a Snowflake account and database strategy, based on business requirements.
             - Create and configure Snowflake parameters based on a central account and any additional accounts.
@@ -59,7 +59,7 @@ with tab2:
             """)
 
         # Snowflake Architecture
-        with tab7:
+        with tab8:
             st.markdown("""
             ##### 2.1 Outline the benefits and limitations of various data models in a Snowflake environment.
             - Data Models
@@ -89,7 +89,7 @@ with tab2:
             """)
 
         # Data Engineering
-        with tab8:
+        with tab9:
             st.markdown("""
             ##### 3.1 Determine the appropriate data loading or data unloading solution to meet business needs.
             - Data sources
@@ -119,7 +119,7 @@ with tab2:
             """)
 
         # Performance Optimization
-        with tab9:
+        with tab10:
             st.markdown("""
             ##### 4.1 Outline performance tools, best practices, and appropriate scenarios where they should be applied.
             - Query profiling
@@ -139,14 +139,26 @@ with tab2:
               + Account Usage and Information Schema
             """)
             
-# Study Resources
+# Study Resources - maybe all and domain-specific?
 with tab3: 
     st.subheader("Study Resources")
     for i in links:
         st.write(i)
 
-# Randomizer
+# Generator
 with tab4:
+    col1, col2 = st.columns(2)
+    with col1:
+        for i in links:
+            st.write(i)
+    with col2:
+        url = st.text_input("Input URL:", max_chars=1000)
+        if url:
+            st.write("Study Resource:", url)
+            components.iframe(url, width=920, height=675, scrolling=True)
+
+# Randomizer
+with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
         link = random.choice(links2)
@@ -156,7 +168,7 @@ with tab4:
         st.write("")
 
 # Sample Questions
-with tab5:
+with tab6:
     st.subheader("Sample Questions")
 
     # Q1
