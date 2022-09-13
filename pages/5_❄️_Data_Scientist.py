@@ -239,6 +239,7 @@ with tab4:
         for i in links:
             st.write(i)
     with col2:
+      with st.container():
         url = st.text_input("Input URL:", max_chars=1000)
         if url:
             st.write("Study Resource:", url)

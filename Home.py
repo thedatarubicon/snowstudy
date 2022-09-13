@@ -43,6 +43,7 @@ with tab1:
 with tab2:
     st.markdown("""
     ##### 9/13/22:
+    - Fixed bug - iframe display is now placed within a container
     - Add new feature: Generator - render study resource URLs that you want
     - Update Core's Domain & Objectives tab
     ##### 9/8/22:
