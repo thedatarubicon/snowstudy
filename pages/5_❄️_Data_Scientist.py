@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 st.header("SnowPro Advanced: Data Scientist")
 
 # Tabs
-tab1, tab2, tab3, tab4, tab5 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Randomizer", "Sample Questions"])
+tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objectives", "Study Resources", "Generator", "Randomizer", "Sample Questions"])
 
 # Exam Breakdown
 with tab1:
@@ -30,7 +30,7 @@ with tab1:
 with tab2:
     st.subheader("Domains & Objectives")
     with st.container():
-        tab6, tab7, tab8, tab9, tab10 = st.tabs(["Data Science Concepts", "Data Pipelining", "Data Preparation and Feature Engineering", "Model Development", "Model Deployment"])
+        tab7, tab8, tab9, tab10, tab11 = st.tabs(["Data Science Concepts", "Data Pipelining", "Data Preparation and Feature Engineering", "Model Development", "Model Deployment"])
         st.markdown('''
                     <style>
                     [data-testid="stMarkdownContainer"] ul{
@@ -232,8 +232,20 @@ with tab3:
     for i in links:
         st.write(i)
 
-# Randomizer
+# Generator
 with tab4:
+    col1, col2 = st.columns(2)
+    with col1:
+        for i in links:
+            st.write(i)
+    with col2:
+        url = st.text_input("Input URL:", max_chars=1000)
+        if url:
+            st.write("Study Resource:", url)
+            components.iframe(url, width=920, height=675, scrolling=True)
+
+# Randomizer
+with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
         link = random.choice(links2)
@@ -243,7 +255,7 @@ with tab4:
         st.write("")
 
 # Sample Questions
-with tab5:
+with tab6:
     st.subheader("Sample Questions")
 
     # Q1
