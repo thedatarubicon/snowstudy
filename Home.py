@@ -42,6 +42,9 @@ with tab1:
 # Release Notes
 with tab2:
     st.markdown("""
+    ##### 9/13/22:
+    - Add new feature: Generator - render study resource URLs that you want
+    - Update Core's Domain & Objectives tab
     ##### 9/8/22:
     - Update Core page's structure and content
     - Update Core page's list object references from links folder
