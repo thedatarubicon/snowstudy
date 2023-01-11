@@ -249,7 +249,7 @@ with tab4:
 with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
-        link = random.choice(links2)
+        link = random.choice(links)
         st.write("Study Resource:", link)
         components.iframe(link, width=715, height=550, scrolling=True)
     else:
