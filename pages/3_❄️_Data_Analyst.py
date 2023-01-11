@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import random
 from PIL import Image
-from links.da import links, ra, sd, as_dict, dict
+from links.da import links
 
 # Page Layout
 st.set_page_config(layout="wide")

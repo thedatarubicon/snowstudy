@@ -6,7 +6,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.sa import links, links2, lg, ra, sd, as_dict, dict
+from links.sa import links
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -150,30 +150,19 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            # for i in links:
-            #     st.write(i)
-            # option = st.selectbox("Resource Type", option=as_dict)
-            # if option == option:
-            #     st.write(as_dict)
-            # st.write(as_dict)
-            opt = st.selectbox("Study Resource Topic", options=dict.keys())
-            if opt:
-                opt2 = st.selectbox("Study Resource Type", options=as_dict.keys())
-                for key, value in as_dict.items():
-                    if opt2 == key:
-                        for i in value:
-                            st.write(i)
+            for i in links:
+                st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
                 st.write("Study Resource:", url)
                 components.iframe(url, width=750, height=675, scrolling=True)
-
+                
 # Randomizer
 with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
-        link = random.choice(links2)
+        link = random.choice(links)
         st.write("Study Resource:", link)
         components.iframe(link, width=715, height=550, scrolling=True)
     else:
