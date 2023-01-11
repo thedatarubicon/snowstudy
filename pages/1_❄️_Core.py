@@ -20,7 +20,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objec
 # Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
-    st.markdown("The study guide was last updated on: August 9, 2022")
+    st.markdown("The study guide was last updated on: September 9, 2022")
     ebd = {"Domain": ["Snowflake Cloud Data Platform and Features", "Account Access and Security", "Performance Concepts", "Data Loading and Unloading", "Data Transformations", "Data Protection and Data Sharing"],
            "Estimated Percentage Range": ["20-25%", "20-25%", "10-15%", "5-10%", "20-25%", "5-10%"]}
     df = pd.DataFrame(data=ebd)
