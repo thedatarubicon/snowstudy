@@ -40,7 +40,7 @@ with tab2:
                     ''', unsafe_allow_html=True)
 
         # Data Science Concepts
-        with tab6:
+        with tab7:
             st.markdown("""
             ##### 1.1 Define machine learning concepts for data science workloads.
             - Artificial Intelligence
@@ -81,7 +81,7 @@ with tab2:
             """)
 
         # Data Pipelining
-        with tab7:
+        with tab8:
             st.markdown("""
             ##### 2.1 Source and collect data into Snowflake from multiple sources.
             - Data loading
@@ -111,7 +111,7 @@ with tab2:
             """)
 
         # Data Preparation and Feature Engineering
-        with tab8:
+        with tab9:
             st.markdown("""
             ##### 3.1 Prepare and clean the data for analysis in Snowflake.
             - Use Snowflake native functions, SQL, and Snowpark
@@ -159,7 +159,7 @@ with tab2:
             """)
 
         # Model Development
-        with tab9:
+        with tab10:
             st.markdown("""
             ##### 4.1 Connect data science tools directly to data in Snowflake.
             - Connectors
@@ -197,7 +197,7 @@ with tab2:
             """)
 
         # Model Deployment
-        with tab10:
+        with tab11:
             st.markdown("""
             ##### 5.1 Move a data science model into production.
             - Deploy an external hosted model
@@ -249,7 +249,7 @@ with tab4:
 with tab5:
     st.subheader("Randomizer")
     if st.button("Generate Study Resource"):
-        link = random.choice(links2)
+        link = random.choice(links)
         st.write("Study Resource:", link)
         components.iframe(link, width=715, height=550, scrolling=True)
     else:

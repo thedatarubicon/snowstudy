@@ -25,6 +25,7 @@ with tab1:
     - Core 
     - Advanced: Architect
     - Advanced: Administrator
+    - Advanced: Data Analyst
     - Advanced: Data Engineer
     - Advanced: Data Scientist
     - Feedback
