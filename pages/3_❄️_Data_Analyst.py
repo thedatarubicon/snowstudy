@@ -173,13 +173,8 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            opt = st.selectbox("Study Resource Topic", options=dict.keys())
-            if opt:
-                opt2 = st.selectbox("Study Resource Type", options=as_dict.keys())
-                for key, value in as_dict.items():
-                    if opt2 == key:
-                        for i in value:
-                            st.write(i)
+            for i in links:
+                st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
