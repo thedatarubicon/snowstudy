@@ -1,12 +1,12 @@
 # Exam Study Guide
-# Last Updated: May 3, 2022
+# Last Updated: October 24, 2022
 
 # Import package dependencies
 import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.sa import links
+from links.sa import links, dict
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -20,7 +20,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objec
 # Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
-    st.markdown("The study guide was last updated on: May 3, 2022")
+    st.markdown("The study guide was last updated on: October 24, 2022")
     abd = {"Domain": ["Accounts & Security", "Snowflake Architecture", "Data Engineering", "Performance Optimization"], 
            "Estimated Percentage Range": ["25-30%", "20-25%", "15-20%", "20-25%"]}
     df = pd.DataFrame(data=abd)
@@ -150,14 +150,17 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            for i in links:
-                st.write(i)
+            opt = st.selectbox("Study Resource Topic", options=dict.keys(), key=0)
+            for key, value in dict.items():
+                if opt == key:
+                    for i in value:
+                        st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
                 st.write("Study Resource:", url)
                 components.iframe(url, width=750, height=675, scrolling=True)
-                
+
 # Randomizer
 with tab5:
     st.subheader("Randomizer")
@@ -180,7 +183,7 @@ with tab6:
     - C. ALTER TABLE ... SET NOT NULL ...
     - D. ALTER TABLE ... DROP COLUMN ...
     """)
-    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=0)
+    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
     if q1 == "A":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -196,7 +199,7 @@ with tab6:
     - C. CREATE TABLE current_employee_copy_data CLONE current_employee;
     - D. CREATE TABLE current_employee_copy_data as SELECT * from current_employee;
     """)
-    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
+    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
     if q2 == "B":
         st.write("✅ That's correct!")
     elif q2 == "":
@@ -212,7 +215,7 @@ with tab6:
     - C. The SECURITYADMIN role is not allowed to GRANT permissions to a role.
     - D. GRANT ROLE DBA_ROLE TO USER PERSON1; USE ROLE DBA_ROLE;
     """)
-    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
+    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=3)
     if q3 == "D":
         st.write("✅ That's correct!")
     elif q3 == "":
@@ -228,7 +231,7 @@ with tab6:
     - C. Text
     - D. Varchar
     """)
-    q4 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=3)
+    q4 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
     if q4 == "D":
         st.write("✅ That's correct!")
     elif q4 == "":
@@ -245,7 +248,7 @@ with tab6:
     - D. Data can be cloned across regions and a share can be created on the clone.
     - E. Data can be replicated to a different cloud provider and a share can be created on the replica.
     """)
-    q5 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=4)
+    q5 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=5)
     if q5 == "B, E":
         st.write("✅ That's correct!")
     elif q5 == "":
