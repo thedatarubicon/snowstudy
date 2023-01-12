@@ -1,12 +1,12 @@
 # Exam Study Guide
-# Last Updated: August 9, 2022
+# Last Updated: September 9, 2022
 
 # Import package dependencies
 import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.core import links, links2
+from links.core import links, dict
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -198,8 +198,11 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            for i in links:
-                st.write(i)
+            opt = st.selectbox("Study Resource Topic", options=dict.keys(), key=0)
+            for key, value in dict.items():
+                if opt == key:
+                    for i in value:
+                        st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
@@ -228,7 +231,7 @@ with tab6:
     - C. ETL
     - D. Streaming
     """)
-    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=0)
+    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
     if q1 == "B":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -244,7 +247,7 @@ with tab6:
     - C. 100
     - D. Unlimited
     """)
-    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
+    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
     if q2 == "D":
         st.write("✅ That's correct!")
     elif q2 == "":
@@ -260,7 +263,7 @@ with tab6:
     - C. Map Reduce
     - D. B-Tree
     """)
-    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
+    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=3)
     if q3 == "A":
         st.write("✅ That's correct!")
     elif q3 == "":
@@ -277,7 +280,7 @@ with tab6:
     - D. cache size  
     - E. default role
     """)
-    q4 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=3)
+    q4 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=4)
     if q4 == "A, C":
         st.write("✅ That's correct!")
     elif q4 == "":
@@ -293,7 +296,7 @@ with tab6:
     - C. ACCOUNTADMIN
     - D. ROOT
     """)
-    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
+    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=5)
     if q5 == "C":
         st.write("✅ That's correct!")
     elif q5 == "":

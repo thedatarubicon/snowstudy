@@ -1,12 +1,12 @@
 # Exam Study Guide
-# Last Updated: March 1, 2022
+# Last Updated: November 3, 2022
 
 # Import package dependencies
 import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.adm import links, links2
+from links.adm import links, dict
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -20,7 +20,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objec
 # Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
-    st.markdown("The study guide was last updated on: March 1, 2022")
+    st.markdown("The study guide was last updated on: November 3, 2022")
     adbd = {"Domain": ["Snowflake Security, RBAC, & User Administration", "Account Management & Data Governance", "Performance Monitoring & Tuning", "Data Sharing, Data Exchange, & Data Marketplace", "Disaster Recovery, Backup, & Data Replication"],
            "Estimated Percentage Range": ["25-30%", "25-30%", "20-25%", "10-15%", "10-15%"]}
     df = pd.DataFrame(data=adbd)
@@ -335,8 +335,11 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            for i in links:
-                st.write(i)
+          opt = st.selectbox("Study Resource Topic", options=dict.keys(), key=0)
+          for key, value in dict.items():
+              if opt == key:
+                  for i in value:
+                      st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
@@ -368,7 +371,7 @@ with tab6:
     - C. The Administrator of the institute needs to raise a support ticket authorizing Snowflake Support to execute the share request.
     - D. The Administrator needs to set share_restrictions on the shared object to FALSE.
     """)
-    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=0)
+    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
     if q1 == "D":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -387,7 +390,7 @@ with tab6:
     - C. The two roles should share a warehouse with a short auto-suspend (less than 10 seconds) to reduce compute costs.
     - D. Each role should have its own warehouse with a short auto-suspend (less than 10 seconds) to save on compute costs.
     """)
-    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
+    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
     if q2 == "A":
         st.write("✅ That's correct!")
     elif q2 == "":
@@ -405,7 +408,7 @@ with tab6:
     - E. Policies
     - F. Tasks
     """)
-    q3 = st.selectbox("Answers:", ("", "A, B, C", "A, C, D", "A, D, E", "A, E, F", "B, C, D", "B, D, E", "B, E, F", "C, D, E", "C, E, F", "D, E, F"), key=2)
+    q3 = st.selectbox("Answers:", ("", "A, B, C", "A, C, D", "A, D, E", "A, E, F", "B, C, D", "B, D, E", "B, E, F", "C, D, E", "C, E, F", "D, E, F"), key=3)
     if q3 == "A, D, E":
         st.write("✅ That's correct!")
     elif q3 == "":
@@ -428,7 +431,7 @@ with tab6:
     - E. ```grant all on database dev to role devrole with grant option;```
     - F. ```grant all on database dev to role devrole; grant all on all schemas in database dev to role devrole;```
     """)
-    q4 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "A, F", "B, C", "B, D", "B, E", "B, F", "C, D", "C, E", "C, F", "D, E", "D, F", "E, F"), key=3)
+    q4 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "A, F", "B, C", "B, D", "B, E", "B, F", "C, D", "C, E", "C, F", "D, E", "D, F", "E, F"), key=4)
     if q4 == "C, D":
         st.write("✅ That's correct!")
     elif q4 == "":
@@ -446,7 +449,7 @@ with tab6:
     - C. The Administrator cannot share a table that has a dynamic data masking policy applied to one of its columns.
     - D. Any queries against the table will completely omit the cc_num column from the result set that is returned.
     """)
-    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
+    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=5)
     if q5 == "B":
         st.write("✅ That's correct!")
     elif q5 == "":

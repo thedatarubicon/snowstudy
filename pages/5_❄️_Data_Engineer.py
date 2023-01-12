@@ -1,5 +1,5 @@
 # Exam Study Guide
-# Last Updated: June 23, 2022
+# Last Updated: September 27, 2022
 
 # Import package dependencies
 import streamlit as st
@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import random
 from PIL import Image
-from links.de import links, links2
+from links.de import links, dict
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -21,7 +21,7 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(["Exam Breakdown", "Domains & Objec
 # Exam Breakdown
 with tab1:
     st.subheader("Exam Breakdown")
-    st.markdown("The study guide was last updated on: June 23, 2022")
+    st.markdown("The study guide was last updated on: September 27, 2022")
     debd = {"Domain": ["Data Movement", "Performance Optimization", "Storage and Data Protection", "Security", "Data Transformation"], 
            "Estimated Percentage Range": ["25-30%", "20-25%", "10-15%", "10-15%", "25-30%"]}
     df = pd.DataFrame(data=debd)
@@ -162,8 +162,11 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            for i in links:
-                st.write(i)
+          opt = st.selectbox("Study Resource Topic", options=dict.keys(), key=0)
+          for key, value in dict.items():
+              if opt == key:
+                  for i in value:
+                      st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
@@ -194,7 +197,7 @@ with tab6:
     - C. Clustering information: the information will be presented as if the table was clustered by col1, col2.
     - D. An error: this function does not accept lists of columns as a second parameter.
     """)
-    q1 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=0)
+    q1 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=1)
     if q1 == "B":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -221,7 +224,7 @@ with tab6:
     - C. The table was initially not organized for queries that range over column o_orderdate. Over time, this organization has changed.
     - D. The table was initially poorly organized for queries that range over column o_orderdate. Over time, this organization has improved.
     """)
-    q2 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=1)
+    q2 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=2)
     if q2 == "A":
         st.write("✅ That's correct!")
     elif q2 == "":
@@ -238,7 +241,7 @@ with tab6:
     - C. Limit file names to under 30 characters
     - D. Organize files into logical paths that reflect a scheduling pattern
     """)
-    q3 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=2)
+    q3 = st.selectbox("Answers:", ("", "A", "B", "C", "D"), key=3)
     if q3 == "D":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -255,7 +258,7 @@ with tab6:
     - C. COPY INTO @myExtStage from @myInternalStage;
     - D. Write a custom script to move the data
     """)
-    q4 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=3)
+    q4 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
     if q4 == "A":
         st.write("✅ That's correct!")
     elif q4 == "":
@@ -273,7 +276,7 @@ with tab6:
     - C. The retention time on both tables will be set to 20 days.
     - D. The retention time will not change on either table.
     """)
-    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
+    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=5)
     if q5 == "A":
         st.write("✅ That's correct!")
     elif q5 == "":
