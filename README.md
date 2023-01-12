@@ -1,6 +1,6 @@
 # Snowflake SnowPro SnowStudy
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://thedatarubicon-snowpro-snowstudy-home-v3ylfe.streamlitapp.com/)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://snowpro-snowstudy.streamlit.app/Architect)
 
 ## Environment Setup (using Terminal or Command Prompt)
 1. Create a virtual environment using python's venv:
