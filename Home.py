@@ -35,4 +35,7 @@ Each page contains the following tabs:
 - Sample Questions
 #### References
 - [Snowflake Certifications](https://www.snowflake.com/certifications/)
+- [Snowflake University](https://learn.snowflake.com/)
+- [30-Day Free Trial Account](https://signup.snowflake.com/?referrer=snowpro-cert)
+- [Release Notes](https://docs.snowflake.com/en/release-notes.html)
 """)
