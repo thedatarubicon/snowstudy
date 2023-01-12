@@ -6,7 +6,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 import pandas as pd
 import random
-from links.ds import links, links2
+from links.ds import links, dict
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -237,8 +237,11 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            for i in links:
-                st.write(i)
+          opt = st.selectbox("Study Resource Topic", options=dict.keys(), key=0)
+          for key, value in dict.items():
+              if opt == key:
+                  for i in value:
+                      st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
@@ -268,7 +271,7 @@ with tab6:
     - D. Preparing Data
     - E. Deploying a data model
     """)
-    q1 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=0)
+    q1 = st.selectbox("Answers:", ("", "A, B", "A, C", "A, D", "A, E", "B, C", "B, D", "B, E", "C, D", "C, E", "D, E"), key=1)
     if q1 == "C, D":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -286,7 +289,7 @@ with tab6:
     - E. R
     - F. Python
     """)
-    q2 = st.selectbox("Answers:", ("", "A, B, C", "A, C, D", "A, D, E", "A, E, F", "B, C, D", "B, D, E", "B, E, F", "B, F, A", "C, D, E", "C, E, F", "C, F, A", "D, E, F", "D, F, A"), key=1)
+    q2 = st.selectbox("Answers:", ("", "A, B, C", "A, C, D", "A, D, E", "A, E, F", "B, C, D", "B, D, E", "B, E, F", "B, F, A", "C, D, E", "C, E, F", "C, F, A", "D, E, F", "D, F, A"), key=2)
     if q2 == "A, C, D":
         st.write("✅ That's correct!")
     elif q2 == "":
