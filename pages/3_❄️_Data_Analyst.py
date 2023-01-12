@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import random
 from PIL import Image
-from links.da import links
+from links.da import links, dict
 
 # Page Layout
 st.set_page_config(layout="wide")
@@ -173,8 +173,11 @@ with tab4:
     with st.container():
         col1, col2 = st.columns(2)
         with col1:
-            for i in links:
-                st.write(i)
+            opt = st.selectbox("Study Resource Topic", options=dict.keys(), key=0)
+            for key, value in dict.items():
+                if opt == key:
+                    for i in value:
+                        st.write(i)
         with col2:
             url = st.text_input("Input URL:", max_chars=1000)
             if url:
@@ -205,7 +208,7 @@ with tab6:
     - C. Use the COPY command to load the region table (region_id, name, comment).
     - D. Use the COPY command to load the customer table (id, name, address, region_id, phone_number).
     """)
-    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=0)
+    q1 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
     if q1 == "D":
         st.write("✅ That's correct!")
     elif q1 == "":
@@ -276,7 +279,7 @@ with tab6:
     ORDER BY make, model, extras;
     ```
     """)
-    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=1)
+    q2 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
     if q2 == "B":
         st.write("✅ That's correct!")
     elif q2 == "":
@@ -304,7 +307,7 @@ with tab6:
     - C. The retention time on both tables will be set to 15 days.
     - D. The retention time will be unchanged for both tables.
     """)
-    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=2)
+    q3 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=3)
     if q3 == "B":
         st.write("✅ That's correct!")
     elif q3 == "":
@@ -329,7 +332,7 @@ with tab6:
     - D. 3 for the hidden DENSE_RANK cell
     - E. 1 for the hidden NTILE cell
     """)
-    q4 = st.selectbox("Answer(s):", ("", "A & B", "A & C", "A & D", "A & E", "B & C", "B & D", "B & E", "C & D", "C & E", "D & E"), key=3)
+    q4 = st.selectbox("Answer(s):", ("", "A & B", "A & C", "A & D", "A & E", "B & C", "B & D", "B & E", "C & D", "C & E", "D & E"), key=4)
     if q4 == "C & E":
         st.write("✅ That's correct!")
     elif q4 == "":
@@ -343,7 +346,7 @@ with tab6:
     The chart should always show orders for the last 30 days excluding partial days based on the order_date field.
     Which notation will meet this requirement?**
     """)
-    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=4)
+    q5 = st.selectbox("Answer:", ("", "A", "B", "C", "D"), key=5)
     if q5 == "D":
         st.write("✅ That's correct!")
     elif q5 == "":
