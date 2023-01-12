@@ -170,9 +170,9 @@ d4 = ["https://docs.snowflake.com/en/sql-reference/account-usage.html",
      "https://docs.snowflake.com/en/user-guide/ui-snowsight-visualizations.html#using-charts"]
 
 # Data Analyst Dictionary
-dict = {
-    "Data Ingestion and Data Preparation": d1,
-    "Data Transformation and Data Modeling": d2,
-    "Data Analysis": d3,
-    "Data Presentation and Data Visualizations": d4,
+dict = {"":"",
+        "Data Ingestion and Data Preparation": d1,
+        "Data Transformation and Data Modeling": d2,
+        "Data Analysis": d3,
+        "Data Presentation and Data Visualizations": d4,
 }
